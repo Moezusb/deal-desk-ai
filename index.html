@@ -108,9 +108,12 @@
   <div class="input-panel">
     <div class="panel-header">
       <span class="panel-label">Call Transcript</span>
-      <span class="char-count" id="charCount">0 chars</span>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span id="demoTag" style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#000;background:var(--accent);padding:2px 8px;border-radius:4px;">Demo loaded</span>
+        <span class="char-count" id="charCount">0 chars</span>
+      </div>
     </div>
-    <textarea id="transcript" placeholder="Paste your sales call transcript here..."></textarea>
+    <textarea id="transcript" placeholder="Paste your own call transcript here, or hit Analyze Call to run the demo..."></textarea>
     <div class="input-footer">
       <span class="model-tag">claude-sonnet-4-20250514</span>
       <button class="analyze-btn" id="analyzeBtn" onclick="analyzeCall()">
@@ -127,8 +130,8 @@
     <div class="output-scroll" id="outputArea">
       <div class="empty-state" id="emptyState">
         <div class="empty-icon">◈</div>
-        <div class="empty-title">Awaiting transcript</div>
-        <div class="empty-sub">Paste a call transcript on the left and hit Analyze Call to extract structured intelligence.</div>
+        <div class="empty-title">Ready when you are</div>
+        <div class="empty-sub">A demo transcript is pre-loaded on the left. Hit Analyze Call to see it in action — or paste your own transcript first.</div>
       </div>
     </div>
     <div class="output-footer">
@@ -201,7 +204,10 @@ Sarah: Great talking to you Marcus. I'll have everything over by Thursday.`;
 
 document.getElementById('transcript').value = SAMPLE_TRANSCRIPT;
 updateCharCount();
-document.getElementById('transcript').addEventListener('input', updateCharCount);
+document.getElementById('transcript').addEventListener('input', () => {
+  updateCharCount();
+  document.getElementById('demoTag').style.display = 'none';
+});
 
 function updateCharCount() {
   const len = document.getElementById('transcript').value.length;
