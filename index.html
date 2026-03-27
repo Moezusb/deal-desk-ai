@@ -142,65 +142,67 @@
 </div>
 
 <script>
-const SAMPLE_TRANSCRIPT = `[Sales Call Recording — Bridgit Demo]
-Duration: 38 minutes
-Rep: Sarah Chen | Prospect: Marcus Webb, VP of Operations, Hartwell Construction
+const SAMPLE_TRANSCRIPT = `[Sales Call Recording — Discovery & Demo]
+Duration: 26 minutes
+Rep: Jordan Ellis | Prospect: Priya Nair, Director of Operations, Crestfield Group
 
-Sarah: Marcus, thanks for making time. You mentioned on the intro call you're dealing with some resourcing headaches — can you walk me through what that looks like day-to-day?
+Jordan: Priya, appreciate you making time. You mentioned in your intro email that you're dealing with some process gaps — before I show you anything, I'd love to understand what's actually going on day-to-day.
 
-Marcus: Yeah, it's a real problem. We've got 14 active projects right now and I genuinely don't know at any given moment who's available, who's overloaded, or where the gaps are going to hit us in 60 days. Our PM uses spreadsheets. I have a spreadsheet. My superintendent has a spreadsheet. None of them match.
+Priya: Yeah, honestly it's become a real bottleneck. We're scaling fast — went from 80 to 140 employees in about 14 months — and the internal processes we had just haven't kept up. Approvals are slow, handoffs between teams get dropped, and I spend probably a third of my week chasing status updates that should just... exist somewhere.
 
-Sarah: How long has that been the process?
+Jordan: A third of your week. That's significant. What does that look like in practice?
 
-Marcus: Honestly? Since I joined three years ago. We tried to fix it once, bought a tool — I won't name it — and it sat unused. People just didn't adopt it.
+Priya: I manage cross-functional delivery across four departments. Every project has a different tracking system — one team lives in spreadsheets, another uses a project tool we half-implemented two years ago, and my team uses email threads mostly. When leadership asks me for a status on anything, I have to go collect it manually from three different places before I can give an answer.
 
-Sarah: What killed the adoption?
+Jordan: Has that caused any real problems, or is it more of a daily friction thing?
 
-Marcus: It was too complex. PMs didn't want to log in, it didn't connect to what they were already using, and training took too long. They went back to Excel within two months.
+Priya: Both. The friction is constant. But last quarter we had a client deliverable slip by two weeks because a dependency got lost in the handoff between our product and delivery teams. The client wasn't happy. We ended up offering a service credit. That one incident cost us around $40,000 when you factor in the credit and the internal time spent managing it.
 
-Sarah: That's a really common story. What's the cost of the current situation — do you have a sense of it?
+Jordan: And leadership is aware of this?
 
-Marcus: We had a project last quarter where we over-committed a key superintendent on two sites simultaneously. Ended up with a delay that cost us roughly $180K in penalties. That's one incident. I can think of three others in the last 18 months.
+Priya: My VP is. She's actually the one who pushed me to evaluate solutions — she flagged it in our Q4 planning. But our CFO, Daniel, will need to see a clear ROI case before anything gets approved. He's very numbers-driven. Above $30K, it also needs sign-off from our CEO.
 
-Sarah: So we're talking potential six-figure risk per incident, multiple times a year.
+Jordan: Good to know. So you've got yourself as the operational champion, your VP as the executive sponsor, Daniel on the financial side, and CEO sign-off above the threshold. Is there anyone else who'd be involved in the decision?
 
-Marcus: Yeah. If Bridgit could give me visibility 90 days out, that alone would justify it.
+Priya: Our Head of Product would want to weigh in since it touches his team's workflows. But he'll follow my recommendation if the operational case is solid.
 
-Sarah: Let me show you exactly that. [Demo proceeds — capacity heatmap, 90-day view, integration with Procore]
+Jordan: That's helpful. Let me show you how we'd approach this. [Demo proceeds — unified workflow dashboard, automated handoff notifications, cross-team visibility layer, real-time status reporting]
 
-Marcus: Okay, this is actually what I pictured. How long does implementation take?
+Priya: Okay, the handoff notification piece is exactly what I was hoping existed. How configurable is that?
 
-Sarah: For a team your size, typically 3 to 4 weeks including data migration.
+Jordan: Fully configurable per workflow type. You define the trigger — stage change, deadline proximity, owner reassignment — and the notification goes to whoever you specify, however you want it routed.
 
-Marcus: The spreadsheet migration is what worries me. We have years of project data.
+Priya: What does implementation look like? That's where we got burned last time. We brought in a tool two years ago and it took six months to get to anything usable.
 
-Sarah: We have a data migration team that handles that — it's not on your PMs. That's usually the relief moment for people.
+Jordan: For a team your size, we're typically looking at four to six weeks to full deployment. We have a dedicated implementation team — it's not on your ops staff to figure it out. The first two weeks are configuration and data migration. Weeks three and four are department rollouts with training. By week six, most clients are fully live.
 
-Marcus: Who else is involved in the decision on our end... I need to loop in our CFO, Linda Park. She's going to want to see ROI numbers before anything moves.
+Priya: Training is a real concern. My team is not particularly technical.
 
-Sarah: Totally expected. Want me to put together an ROI model for Linda based on what you shared today?
+Jordan: That's actually where we spend the most time getting it right. We build role-specific training tracks — your delivery team sees a different interface and training path than your finance team. And we assign a customer success manager for the first 90 days post-launch.
 
-Marcus: Yeah, that would actually be very helpful. Can you send that by end of week?
+Priya: I do want to be transparent with you — we're also looking at one other platform. They came in at a lower price point on the initial quote.
 
-Sarah: Done. I'll also send a one-pager she can review independently. What's her biggest concern usually — cost, timeline, or disruption risk?
+Jordan: I appreciate you telling me. Can I ask who you're evaluating?
 
-Marcus: Cost-benefit. She's analytical. Numbers first.
+Priya: I'd rather not say at this stage. But the price difference was noticeable.
 
-Sarah: Perfect, I'll build it around the $180K incident and the pattern you described. One more question — is there a procurement process we'd go through, or does this sit with you and Linda?
+Jordan: Understood. What I'd ask is that we make sure the comparison is complete — implementation timeline, support model, and configurability tend to be where the real cost difference lives, not the license fee. A six-month implementation like your last experience has a cost too, it's just harder to see on the quote.
 
-Marcus: It would be me, Linda, and probably our CEO signs off above $50K. We're likely in that range, right?
+Priya: That's fair. The $40K incident is actually a good anchor for the ROI conversation with Daniel.
 
-Sarah: Depending on team size and modules, yes. I'll include pricing options in the ROI doc.
+Jordan: Exactly what I was thinking. I can build an ROI model around that specific incident and the pattern you described — recurring coordination cost, risk of future slippage, and the time you're currently spending on manual status collection. Want me to have that ready before your internal review with Daniel?
 
-Marcus: Sounds good. Oh — one thing I forgot to mention. We're also evaluating one other vendor. Early stages, but I want to be upfront.
+Priya: Yes, that would be really helpful. Can you get it to me by end of week?
 
-Sarah: I appreciate that. Do you mind if I ask who?
+Jordan: I'll have it to you by Thursday. I'll also put together a one-pager your CEO can review independently — clean, no jargon, just the business case.
 
-Marcus: I'd rather not say at this point. But they came in cheaper on the initial quote.
+Priya: Perfect. One last thing — we're hoping to have a decision made before end of next month. Is that a realistic timeline on your end?
 
-Sarah: Understood. Let's make sure the ROI case is airtight so the comparison is apples-to-apples. Price per seat looks different when you factor in what a single avoided incident is worth.
+Jordan: Completely workable. If we align on the proposal by mid-month, we can have contracts sorted and kick off implementation before the month closes.
 
-Sarah: Great talking to you Marcus. I'll have everything over by Thursday.`;
+Priya: Good. I'll get time on Daniel's calendar for next week and loop you in.
+
+Jordan: Sounds great. Talk Thursday.`;
 
 document.getElementById('transcript').value = SAMPLE_TRANSCRIPT;
 updateCharCount();
