@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deal Desk AI — Post-Call Intelligence</title>
+<title>Deal Desk AI · Post-Call Intelligence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -115,7 +115,7 @@
     </div>
     <textarea id="transcript" placeholder="Paste your own call transcript here, or hit Analyze Call to run the demo..."></textarea>
     <div class="input-footer">
-      <span class="model-tag">claude-sonnet-4-20250514</span>
+      <span class="model-tag">claude-sonnet-5-5</span>
       <button class="analyze-btn" id="analyzeBtn" onclick="analyzeCall()">
         <span>⚡</span> Analyze Call
       </button>
@@ -125,34 +125,38 @@
   <div class="output-panel">
     <div class="panel-header">
       <span class="panel-label">Intelligence Report</span>
-      <span id="outputStatus" class="char-count">—</span>
+      <span id="outputStatus" class="char-count">·</span>
     </div>
     <div class="output-scroll" id="outputArea">
       <div class="empty-state" id="emptyState">
         <div class="empty-icon">◈</div>
         <div class="empty-title">Ready when you are</div>
-        <div class="empty-sub">A demo transcript is pre-loaded on the left. Hit Analyze Call to see it in action — or paste your own transcript first.</div>
+        <div class="empty-sub">A demo transcript is pre-loaded on the left. Hit Analyze Call to see it in action, or paste your own transcript first.</div>
       </div>
     </div>
     <div class="output-footer">
-      <span class="timestamp" id="timestamp">—</span>
+      <span class="timestamp" id="timestamp">·</span>
       <span class="powered-by">Powered by <span>Claude</span></span>
     </div>
   </div>
 </div>
 
 <script>
-const SAMPLE_TRANSCRIPT = `[Sales Call Recording — Discovery & Demo]
+function esc(v) {
+  return String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+const SAMPLE_TRANSCRIPT = `[Sales Call Recording: Discovery & Demo]
 Duration: 26 minutes
 Rep: Jordan Ellis | Prospect: Priya Nair, Director of Operations, Crestfield Group
 
-Jordan: Priya, appreciate you making time. You mentioned in your intro email that you're dealing with some process gaps — before I show you anything, I'd love to understand what's actually going on day-to-day.
+Jordan: Priya, appreciate you making time. You mentioned in your intro email that you're dealing with some process gaps, before I show you anything, I'd love to understand what's actually going on day-to-day.
 
-Priya: Yeah, honestly it's become a real bottleneck. We're scaling fast — went from 80 to 140 employees in about 14 months — and the internal processes we had just haven't kept up. Approvals are slow, handoffs between teams get dropped, and I spend probably a third of my week chasing status updates that should just... exist somewhere.
+Priya: Yeah, honestly it's become a real bottleneck. We're scaling fast, went from 80 to 140 employees in about 14 months, and the internal processes we had just haven't kept up. Approvals are slow, handoffs between teams get dropped, and I spend probably a third of my week chasing status updates that should just... exist somewhere.
 
 Jordan: A third of your week. That's significant. What does that look like in practice?
 
-Priya: I manage cross-functional delivery across four departments. Every project has a different tracking system — one team lives in spreadsheets, another uses a project tool we half-implemented two years ago, and my team uses email threads mostly. When leadership asks me for a status on anything, I have to go collect it manually from three different places before I can give an answer.
+Priya: I manage cross-functional delivery across four departments. Every project has a different tracking system, one team lives in spreadsheets, another uses a project tool we half-implemented two years ago, and my team uses email threads mostly. When leadership asks me for a status on anything, I have to go collect it manually from three different places before I can give an answer.
 
 Jordan: Has that caused any real problems, or is it more of a daily friction thing?
 
@@ -160,43 +164,43 @@ Priya: Both. The friction is constant. But last quarter we had a client delivera
 
 Jordan: And leadership is aware of this?
 
-Priya: My VP is. She's actually the one who pushed me to evaluate solutions — she flagged it in our Q4 planning. But our CFO, Daniel, will need to see a clear ROI case before anything gets approved. He's very numbers-driven. Above $30K, it also needs sign-off from our CEO.
+Priya: My VP is. She's actually the one who pushed me to evaluate solutions, she flagged it in our Q4 planning. But our CFO, Daniel, will need to see a clear ROI case before anything gets approved. He's very numbers-driven. Above $30K, it also needs sign-off from our CEO.
 
 Jordan: Good to know. So you've got yourself as the operational champion, your VP as the executive sponsor, Daniel on the financial side, and CEO sign-off above the threshold. Is there anyone else who'd be involved in the decision?
 
 Priya: Our Head of Product would want to weigh in since it touches his team's workflows. But he'll follow my recommendation if the operational case is solid.
 
-Jordan: That's helpful. Let me show you how we'd approach this. [Demo proceeds — unified workflow dashboard, automated handoff notifications, cross-team visibility layer, real-time status reporting]
+Jordan: That's helpful. Let me show you how we'd approach this. [Demo proceeds, unified workflow dashboard, automated handoff notifications, cross-team visibility layer, real-time status reporting]
 
 Priya: Okay, the handoff notification piece is exactly what I was hoping existed. How configurable is that?
 
-Jordan: Fully configurable per workflow type. You define the trigger — stage change, deadline proximity, owner reassignment — and the notification goes to whoever you specify, however you want it routed.
+Jordan: Fully configurable per workflow type. You define the trigger, stage change, deadline proximity, owner reassignment, and the notification goes to whoever you specify, however you want it routed.
 
 Priya: What does implementation look like? That's where we got burned last time. We brought in a tool two years ago and it took six months to get to anything usable.
 
-Jordan: For a team your size, we're typically looking at four to six weeks to full deployment. We have a dedicated implementation team — it's not on your ops staff to figure it out. The first two weeks are configuration and data migration. Weeks three and four are department rollouts with training. By week six, most clients are fully live.
+Jordan: For a team your size, we're typically looking at four to six weeks to full deployment. We have a dedicated implementation team, it's not on your ops staff to figure it out. The first two weeks are configuration and data migration. Weeks three and four are department rollouts with training. By week six, most clients are fully live.
 
 Priya: Training is a real concern. My team is not particularly technical.
 
-Jordan: That's actually where we spend the most time getting it right. We build role-specific training tracks — your delivery team sees a different interface and training path than your finance team. And we assign a customer success manager for the first 90 days post-launch.
+Jordan: That's actually where we spend the most time getting it right. We build role-specific training tracks, your delivery team sees a different interface and training path than your finance team. And we assign a customer success manager for the first 90 days post-launch.
 
-Priya: I do want to be transparent with you — we're also looking at one other platform. They came in at a lower price point on the initial quote.
+Priya: I do want to be transparent with you, we're also looking at one other platform. They came in at a lower price point on the initial quote.
 
 Jordan: I appreciate you telling me. Can I ask who you're evaluating?
 
 Priya: I'd rather not say at this stage. But the price difference was noticeable.
 
-Jordan: Understood. What I'd ask is that we make sure the comparison is complete — implementation timeline, support model, and configurability tend to be where the real cost difference lives, not the license fee. A six-month implementation like your last experience has a cost too, it's just harder to see on the quote.
+Jordan: Understood. What I'd ask is that we make sure the comparison is complete, implementation timeline, support model, and configurability tend to be where the real cost difference lives, not the license fee. A six-month implementation like your last experience has a cost too, it's just harder to see on the quote.
 
 Priya: That's fair. The $40K incident is actually a good anchor for the ROI conversation with Daniel.
 
-Jordan: Exactly what I was thinking. I can build an ROI model around that specific incident and the pattern you described — recurring coordination cost, risk of future slippage, and the time you're currently spending on manual status collection. Want me to have that ready before your internal review with Daniel?
+Jordan: Exactly what I was thinking. I can build an ROI model around that specific incident and the pattern you described, recurring coordination cost, risk of future slippage, and the time you're currently spending on manual status collection. Want me to have that ready before your internal review with Daniel?
 
 Priya: Yes, that would be really helpful. Can you get it to me by end of week?
 
-Jordan: I'll have it to you by Thursday. I'll also put together a one-pager your CEO can review independently — clean, no jargon, just the business case.
+Jordan: I'll have it to you by Thursday. I'll also put together a one-pager your CEO can review independently, clean, no jargon, just the business case.
 
-Priya: Perfect. One last thing — we're hoping to have a decision made before end of next month. Is that a realistic timeline on your end?
+Priya: Perfect. One last thing, we're hoping to have a decision made before end of next month. Is that a realistic timeline on your end?
 
 Jordan: Completely workable. If we align on the proposal by mid-month, we can have contracts sorted and kick off implementation before the month closes.
 
@@ -279,34 +283,16 @@ async function analyzeCall() {
     <div class="output-sections" id="sections"></div>
   `;
 
-  const prompt = `You are a senior revenue intelligence analyst. Analyze the sales call transcript below and return a structured JSON object with exactly these keys:
-
-{
-  "summary": "A 2-3 sentence paragraph summarizing the call: who was involved, what problem they have, where the deal stands.",
-  "objections": ["array of specific objections or concerns raised by the prospect, each as a concise string"],
-  "next_steps": ["array of concrete next steps with owner where identifiable, each as a concise string"],
-  "risk_flags": ["array of deal risk signals the rep should know about, each as a concise string"],
-  "follow_up_email": "A complete, ready-to-send follow-up email from the rep to the prospect. Include subject line as the first line prefixed with 'Subject: '. Professional, specific, references details from the call. No placeholders."
-}
-
-Return ONLY valid JSON. No markdown, no explanation, no backticks.
-
-TRANSCRIPT:
-${transcript}`;
-
   try {
     const response = await fetch('/api/analyze', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        messages: [{ role: 'user', content: prompt }]
-      })
+      body: JSON.stringify({ transcript })
     });
 
-    const data = await response.json();
-    const raw = data.content?.find(b => b.type === 'text')?.text || '';
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(data.error || ('Request failed (' + response.status + ')'));
+    const raw = data.text || '';
 
     let parsed;
     try { parsed = JSON.parse(raw.replace(/```json|```/g, '').trim()); }
@@ -319,27 +305,27 @@ ${transcript}`;
     const summaryCard = createSectionCard('summary-card', 'summary-t', '◎ ', 'Deal Summary');
     summaryCard.style.animationDelay = delays[0] + 'ms';
     sections.appendChild(summaryCard);
-    setTimeout(() => { document.getElementById('summary-card-body').innerHTML = `<p>${parsed.summary}</p>`; }, delays[0] + 50);
+    setTimeout(() => { document.getElementById('summary-card-body').innerHTML = `<p>${esc(parsed.summary)}</p>`; }, delays[0] + 50);
 
     const objCard = createSectionCard('obj-card', 'objections-t', '◈ ', 'Objections Raised');
     objCard.style.animationDelay = delays[1] + 'ms';
     sections.appendChild(objCard);
     setTimeout(() => {
-      document.getElementById('obj-card-body').innerHTML = `<ul>${parsed.objections.map(o => `<li><span>${o}</span></li>`).join('')}</ul>`;
+      document.getElementById('obj-card-body').innerHTML = `<ul>${(parsed.objections || []).map(o => `<li><span>${esc(o)}</span></li>`).join('')}</ul>`;
     }, delays[1] + 50);
 
     const nsCard = createSectionCard('ns-card', 'nextsteps-t', '◆ ', 'Next Steps', 'nextsteps-card');
     nsCard.style.animationDelay = delays[2] + 'ms';
     sections.appendChild(nsCard);
     setTimeout(() => {
-      document.getElementById('ns-card-body').innerHTML = `<ul>${parsed.next_steps.map(s => `<li><span>${s}</span></li>`).join('')}</ul>`;
+      document.getElementById('ns-card-body').innerHTML = `<ul>${(parsed.next_steps || []).map(s => `<li><span>${esc(s)}</span></li>`).join('')}</ul>`;
     }, delays[2] + 50);
 
     const riskCard = createSectionCard('risk-card', 'risk-t', '⚠ ', 'Risk Flags', 'risk-card');
     riskCard.style.animationDelay = delays[3] + 'ms';
     sections.appendChild(riskCard);
     setTimeout(() => {
-      document.getElementById('risk-card-body').innerHTML = `<ul>${parsed.risk_flags.map(r => `<li><span>${r}</span></li>`).join('')}</ul>`;
+      document.getElementById('risk-card-body').innerHTML = `<ul>${(parsed.risk_flags || []).map(r => `<li><span>${esc(r)}</span></li>`).join('')}</ul>`;
     }, delays[3] + 50);
 
     const emailCard = createEmailCard();
@@ -357,7 +343,7 @@ ${transcript}`;
       <div style="padding:40px 24px;text-align:center;color:var(--risk);font-size:13px;">
         <div style="font-size:24px;margin-bottom:12px;">⚠</div>
         <div style="font-weight:600;margin-bottom:6px;">Analysis failed</div>
-        <div style="color:var(--text-muted);font-size:12px;">${err.message}</div>
+        <div style="color:var(--text-muted);font-size:12px;">${esc(err.message)}</div>
       </div>`;
     document.getElementById('outputStatus').textContent = 'Error';
   }
